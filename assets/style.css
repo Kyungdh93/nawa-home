@@ -1,0 +1,99 @@
+:root {
+  --bg: #F7F8F6;
+  --panel: #FFFFFF;
+  --ink: #14171A;
+  --sub: #4B5563;
+  --line: #E2E5E1;
+  --accent: #00864F;
+  --accent-ink: #FFFFFF;
+  --link: #00713F;
+  --live: #0E7490;
+  --soon: #A8700A;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F1211;
+    --panel: #171B19;
+    --ink: #EEF1EF;
+    --sub: #A3ABA6;
+    --line: #2A302D;
+    --accent: #1FA866;
+    --accent-ink: #06130C;
+    --link: #5BD69A;
+    --live: #3CC8E6;
+    --soon: #E7B547;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.65; word-break: keep-all; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.logo { font-weight: 800; font-size: 20px; letter-spacing: .04em; color: var(--ink); text-decoration: none; }
+.top-links { display: flex; gap: 20px; }
+.top-links a { color: var(--sub); text-decoration: none; font-size: 15px; }
+.top-links a:hover { color: var(--ink); }
+
+.hero { padding: 88px 0 56px; }
+.eyebrow { margin: 0 0 12px; color: var(--accent); font-weight: 700; letter-spacing: .14em; font-size: 14px; }
+.hero h1 { margin: 0 0 20px; font-size: clamp(32px, 5.4vw, 52px); line-height: 1.25; letter-spacing: -.02em; }
+.lead { margin: 0; max-width: 640px; color: var(--sub); font-size: 18px; }
+
+section h2 { font-size: 28px; margin: 0 0 24px; letter-spacing: -.01em; }
+.services { padding: 32px 0 72px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+.shot { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #0b1110; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .3s; }
+.shot:hover img { transform: scale(1.03); }
+.card-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.card-body > p { margin: 0; color: var(--sub); }
+.card-head { display: flex; gap: 14px; align-items: center; }
+.app-icon { width: 56px; height: 56px; border-radius: 14px; flex: none; border: 1px solid var(--line); }
+.card h3 { margin: 0; font-size: 21px; }
+.card h3 small { font-size: 14px; font-weight: 500; color: var(--sub); margin-left: 4px; }
+.tag { margin: 2px 0 0; font-size: 14px; color: var(--sub); }
+.badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; margin-right: 4px; border: 1px solid currentColor; }
+.badge.live { color: var(--live); }
+.badge.soon { color: var(--soon); }
+.points { margin: 0; padding-left: 20px; color: var(--sub); font-size: 15px; }
+.points li { margin: 3px 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
+.btn { display: inline-flex; align-items: center; padding: 10px 16px; border-radius: 10px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; }
+.btn:hover { border-color: var(--sub); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+
+.about { padding: 64px 0; border-top: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; }
+.principles { display: grid; gap: 24px; }
+.principles h3 { margin: 0 0 4px; font-size: 18px; }
+.principles p { margin: 0; color: var(--sub); }
+
+.contact { padding: 64px 0; border-top: 1px solid var(--line); }
+.contact p { margin: 0 0 12px; color: var(--sub); }
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.contact-list b { display: inline-block; min-width: 120px; }
+
+.foot { border-top: 1px solid var(--line); padding: 32px 0 40px; }
+.foot-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot a { color: var(--sub); font-size: 14px; }
+.foot p { margin: 0; color: var(--sub); font-size: 14px; }
+
+@media (max-width: 760px) {
+  .hero { padding: 56px 0 32px; }
+  .lead { font-size: 16px; }
+  .cards, .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .top-links { gap: 14px; }
+}
